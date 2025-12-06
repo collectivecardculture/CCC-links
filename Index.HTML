@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Collective Card Culture | Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050509;
+      --card: #0d0d15;
+      --gold: #f6c15b;
+      --gold-soft: #f4d48c;
+      --text: #f5f5f5;
+      --muted: #aaaaaa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #202034 0, #050509 55%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 480px;
+      background: linear-gradient(145deg, #11111a, #050509);
+      border-radius: 24px;
+      padding: 24px 20px 28px;
+      box-shadow:
+        0 0 30px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(246, 193, 91, 0.15);
+      border: 1px solid rgba(246, 193, 91, 0.18);
+    }
+
+    .logo-circle {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #f6c15b 28%, #8b6420 60%, #1f1404 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 0 24px rgba(246, 193, 91, 0.45),
+        0 0 0 1px rgba(0, 0, 0, 0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-circle::after {
+      content: "CCC";
+      font-weight: 800;
+      font-size: 26px;
+      letter-spacing: 0.16em;
+      color: #151010;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);
+    }
+
+    .title {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .title span {
+      color: var(--gold);
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .subtitle-strong {
+      color: var(--gold-soft);
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(246, 193, 91, 0.5);
+      background: radial-gradient(circle at top left, rgba(246, 193, 91, 0.24), #050509 55%);
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.65);
+    }
+
+    .btn span.label-main {
+      display: block;
+      font-size: 13px;
+    }
+
+    .btn span.label-sub {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gold-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(246, 193, 91, 0.8);
+      color: var(--gold-soft);
+      background: rgba(5, 5, 9, 0.6);
+      margin-left: 10px;
+    }
+
+    .btn-primary {
+      border-width: 2px;
+      background: radial-gradient(circle at 20% 0, rgba(246, 193, 91, 0.45), #050509 60%);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.85);
+      border-color: rgba(246, 193, 91, 0.9);
+    }
+
+    .btn-icon {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .footer {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .footer span.brand {
+      color: var(--gold-soft);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 400px) {
+      .wrapper {
+        padding: 18px 14px 22px;
+      }
+      .btn {
+        font-size: 13px;
+        padding: 11px 12px;
+      }
+      .title {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="logo-circle"></div>
+    <h1 class="title">
+      Collective <span>Card</span> Culture
+    </h1>
+    <p class="subtitle">
+      <span class="subtitle-strong">Daily breaks. Massive hits.</span><br />
+      Live on Whatnot & across the hobby.
+    </p>
+
+    <div class="buttons">
+      <!-- WHATNOT -->
+      <a class="btn btn-primary" href="https://www.whatnot.com/s/r7VoarSI" target="_blank" rel="noopener noreferrer">
+        <span>
+          <span class="label-main">Join Our Live Breaks</span>
+          <span class="label-sub">Whatnot • Spots Always Opening</span>
+        </span>
+        <span class="pill">LIVE</span>
+      </a>
+
+      <!-- TIKTOK -->
+      <a class="btn" href="https://www.tiktok.com/@collectivecardculture" target="_blank" rel="noopener noreferrer">
+        <span>
+          <span class="label-main">Follow on TikTok</span>
+          <span class="label-sub">@collectivecardculture</span>
+        </span>
+      </a>
+
+      <!-- X -->
+      <a class="btn" href="https://x.com/ccardculture?s=21" target="_blank" rel="noopener noreferrer">
+        <span>
+          <span class="label-main">Follow on X</span>
+          <span class="label-sub">@CCardCulture</span>
+        </span>
+      </a>
+
+      <!-- FACEBOOK -->
+      <a class="btn" href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+        <span>
+          <span class="label-main">Join Us on Facebook</span>
+          <span class="label-sub">Collective Card Culture</span>
+        </span>
+      </a>
+
+      <!-- EMAIL -->
+      <a class="btn" href="mailto:contactus@collectivecardculture.com">
+        <span>
+          <span class="label-main">Contact Us</span>
+          <span class="label-sub">contactus@collectivecardculture.com</span>
+        </span>
+      </a>
+    </div>
+
+    <div class="footer">
+      EST. 2025
+      <span class="brand">Collective Card Culture</span>
+    </div>
+  </div>
+</body>
+</html>
