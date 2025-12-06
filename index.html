@@ -2,445 +2,331 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Collective Card Culture | Links</title>
+  <title>Collective Card Culture • Links</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#05040a" />
   <style>
-    :root {
-      --bg-main: #05040a;
-      --bg-card: rgba(10, 8, 20, 0.9);
-      --accent-gold: #f6c25b;
-      --accent-gold-soft: rgba(246, 194, 91, 0.25);
-      --accent-gold-strong: rgba(246, 194, 91, 0.6);
-      --text-main: #f7f7f7;
-      --text-muted: #9ca3af;
-      --pill-bg: rgba(15, 13, 30, 0.95);
-      --pill-border: rgba(246, 194, 91, 0.35);
-      --shadow-strong: 0 22px 45px rgba(0, 0, 0, 0.85);
-      --radius-card: 24px;
-      --radius-pill: 999px;
-      --transition-fast: 0.15s ease-out;
-      --transition-med: 0.2s ease-out;
-    }
-
+    /* Reset / base */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #2a2335 0, #05050a 55%, #000 100%);
+      color: #f7f4ff;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 18px 14px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      color: var(--text-main);
-      background:
-        radial-gradient(circle at top left, #1c1630 0, transparent 55%),
-        radial-gradient(circle at bottom right, #141824 0, transparent 60%),
-        var(--bg-main);
-      background-attachment: fixed;
-      -webkit-font-smoothing: antialiased;
+      padding: 24px 16px;
     }
 
-    .glow-ring {
-      position: absolute;
-      inset: -60px -26px -26px -26px;
-      background:
-        radial-gradient(circle at top, var(--accent-gold-soft) 0, transparent 55%),
-        radial-gradient(circle at bottom, rgba(0, 0, 0, 0.85) 0, transparent 65%);
-      opacity: 0.9;
-      pointer-events: none;
-      filter: blur(2px);
-    }
-
-    .card-shell {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 32px;
-      padding: 2px;
-      background: radial-gradient(circle at top, #f6c25b, #714526 55%, #15121f);
-      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.95);
-      animation: floatShell 2.6s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatShell {
-      from { transform: translateY(0); }
-      to   { transform: translateY(-4px); }
-    }
-
+    /* Card shell */
     .card {
+      width: 100%;
+      max-width: 520px;
+      background: radial-gradient(circle at top, #201b28 0, #05050a 60%);
+      border-radius: 26px;
+      padding: 28px 20px 24px;
+      border: 1px solid rgba(255, 209, 120, 0.16);
+      box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.85),
+        0 0 40px rgba(255, 210, 120, 0.14);
       position: relative;
-      border-radius: 30px;
-      background: linear-gradient(145deg, rgba(7, 5, 16, 0.96), rgba(15, 13, 30, 0.98));
-      padding: 22px 18px 20px;
-      box-shadow: var(--shadow-strong);
       overflow: hidden;
-      isolation: isolate;
     }
-
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(246, 194, 91, 0.16), transparent 55%),
-        radial-gradient(circle at 90% 10%, rgba(246, 194, 91, 0.12), transparent 60%);
-      mix-blend-mode: screen;
-      opacity: 0;
-      animation: cardGlow 1.2s ease-out forwards;
-    }
-
-    @keyframes cardGlow {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 18px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .logo-circle-wrap {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .logo-halo {
-      position: absolute;
-      width: 104px;
-      height: 104px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle, var(--accent-gold-soft) 0, transparent 60%);
-      filter: blur(8px);
-      opacity: 0.9;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 214, 135, 0.4),
+        rgba(40, 25, 80, 0.4),
+        rgba(255, 214, 135, 0.1)
+      );
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
       pointer-events: none;
     }
 
+    /* Header / logo */
     .logo-circle {
-      position: relative;
-      width: 84px;
-      height: 84px;
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
-      background: radial-gradient(circle at 30% 0%, #424869, #161622 68%, #05040a);
-      border: 2px solid rgba(246, 194, 91, 0.72);
+      margin: 0 auto 18px;
+      background: radial-gradient(circle at 30% 10%, #313a64 0, #111628 38%, #050811 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.95),
-        0 0 30px rgba(246, 194, 91, 0.55);
-      animation: logoPulse 2.1s ease-in-out infinite alternate;
+        0 0 0 1px rgba(255, 208, 120, 0.28),
+        0 12px 30px rgba(0, 0, 0, 0.9),
+        0 0 55px rgba(255, 208, 120, 0.4);
+      position: relative;
     }
-
-    @keyframes logoPulse {
-      from {
-        transform: scale(1);
-        box-shadow:
-          0 10px 30px rgba(0, 0, 0, 0.95),
-          0 0 24px rgba(246, 194, 91, 0.35);
-      }
-      to {
-        transform: scale(1.03);
-        box-shadow:
-          0 14px 38px rgba(0, 0, 0, 0.98),
-          0 0 40px rgba(246, 194, 91, 0.9);
-      }
+    .logo-circle::after {
+      content: "";
+      position: absolute;
+      inset: -12px;
+      border-radius: inherit;
+      background: radial-gradient(circle, rgba(255, 210, 141, 0.18), transparent 60%);
+      z-index: -1;
     }
-
-    .logo-initials {
+    .logo-text {
+      font-size: 34px;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--accent-gold);
-      font-size: 26px;
+      letter-spacing: 0.08em;
+      color: #ffd978;
     }
 
-    .brand-name {
-      font-size: 19px;
-      letter-spacing: 0.16em;
+    h1 {
+      text-align: center;
+      font-size: 22px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
-
-    .brand-sub {
+    .subtitle {
+      text-align: center;
       font-size: 12px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 12px;
+      color: rgba(245, 236, 255, 0.7);
+      margin-bottom: 16px;
     }
-
-    .tagline-row {
+    .tagline-pill {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 211, 137, 0.5);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 211, 137, 0.19),
+        rgba(13, 9, 24, 0.9)
+      );
       font-size: 11px;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--accent-gold);
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 0 0, rgba(246, 194, 91, 0.28), transparent 60%);
-      border: 1px solid rgba(246, 194, 91, 0.45);
+      color: #ffe4a9;
+      margin: 0 auto 22px;
+    }
+    .tagline-wrap {
+      display: flex;
+      justify-content: center;
     }
 
-    .tagline-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: var(--accent-gold);
-    }
-
+    /* Links */
     .links {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin: 12px 0 10px;
-      position: relative;
-      z-index: 2;
+      gap: 14px;
+      margin-bottom: 22px;
     }
-
-    .link-pill {
+    .link-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      padding: 11px 13px 11px 12px;
-      border-radius: var(--radius-pill);
-      background: linear-gradient(135deg, var(--pill-bg), #05040e);
-      border: 1px solid var(--pill-border);
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 999px;
       text-decoration: none;
-      color: var(--text-main);
-      box-shadow: 0 9px 20px rgba(0, 0, 0, 0.7);
-      position: relative;
-      overflow: hidden;
-      transform-origin: center;
-      transition:
-        transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        border-color var(--transition-fast),
-        background var(--transition-med);
+      background: radial-gradient(circle at top left, #262038 0, #080712 65%);
+      border: 1px solid rgba(255, 218, 150, 0.3);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.9);
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease, background 0.12s ease;
+      color: #f8f4ff;
     }
-
-    .link-pill::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0% 0%, rgba(246, 194, 91, 0.25), transparent 55%);
-      opacity: 0;
-      transition: opacity var(--transition-med);
-      pointer-events: none;
-    }
-
-    .link-pill:active {
-      transform: scale(0.985) translateY(1px);
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.8);
-    }
-
-    .link-pill:hover {
+    .link-row:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.95);
-      border-color: var(--accent-gold-strong);
-      background: linear-gradient(135deg, rgba(17, 15, 32, 0.98), rgba(10, 8, 20, 0.98));
+      box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.95),
+        0 0 34px rgba(255, 211, 137, 0.35);
+      border-color: rgba(255, 225, 164, 0.8);
+      background: radial-gradient(circle at top left, #312542 0, #090716 70%);
     }
-
-    .link-pill:hover::before {
-      opacity: 1;
-    }
-
     .link-main {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 10px;
+      min-width: 0;
     }
-
     .link-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(246, 194, 91, 0.09), transparent 60%);
-      border: 1px solid rgba(246, 194, 91, 0.4);
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      background: radial-gradient(circle at top, #ffdf9c, #d48d47);
+      color: #1a1025;
+      font-size: 17px;
+      flex-shrink: 0;
     }
-
     .link-texts {
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 2px;
+      min-width: 0;
     }
-
     .link-title {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .link-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.03em;
-    }
-
-    .link-pill-tag {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(246, 194, 91, 0.6);
-      color: var(--accent-gold);
-      background: radial-gradient(circle at 0 0, rgba(246, 194, 91, 0.18), transparent 65%);
       white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
-
-    .footer {
-      margin-top: 12px;
-      text-align: center;
-      font-size: 10px;
+    .link-subtitle {
+      font-size: 11px;
+      opacity: 0.8;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .link-badge {
+      flex-shrink: 0;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 215, 150, 0.7);
+      font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #6b7280;
+      color: #ffe2aa;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 210, 140, 0.22),
+        rgba(18, 10, 30, 0.95)
+      );
     }
 
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(240, 232, 255, 0.6);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
     .footer a {
-      color: var(--accent-gold);
+      color: #ffd478;
       text-decoration: none;
+      font-weight: 600;
     }
 
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 390px) {
-      .card-shell {
-        max-width: 400px;
-      }
-
+    /* Mobile tweaks */
+    @media (max-width: 420px) {
       .card {
-        padding: 18px 14px 18px;
+        padding: 24px 14px 22px;
+        border-radius: 22px;
       }
-
-      .brand-name {
-        font-size: 17px;
+      .link-row {
+        padding-inline: 12px;
       }
-
       .link-title {
-        font-size: 13px;
+        font-size: 14px;
       }
-
-      .link-pill-tag {
+      .link-subtitle {
         font-size: 10px;
+      }
+      .link-badge {
+        padding-inline: 10px;
         letter-spacing: 0.16em;
-      }
-
-      .tagline-row {
-        font-size: 10px;
-        letter-spacing: 0.2em;
       }
     }
   </style>
 </head>
 <body>
-  <div class="card-shell">
-    <div class="glow-ring"></div>
-    <div class="card">
-      <header class="header">
-        <div class="logo-circle-wrap">
-          <div class="logo-halo"></div>
-          <div class="logo-circle">
-            <span class="logo-initials">CC</span>
-          </div>
-        </div>
-
-        <div class="brand-name">COLLECTIVE CARD CULTURE</div>
-        <div class="brand-sub">Real Cards &bull; Real Culture&trade; &bull; Est. 2025</div>
-
-        <div class="tagline-row">
-          <span>DAILY HITS</span>
-          <span class="tagline-dot"></span>
-          <span>ZERO MISSES</span>
-        </div>
-      </header>
-
-      <main class="links">
-        <!-- Whatnot -->
-        <a class="link-pill" href="https://www.whatnot.com/s/r7VoarSI" target="_blank" rel="noopener">
-          <div class="link-main">
-            <div class="link-icon">🎴</div>
-            <div class="link-texts">
-              <div class="link-title">Join the Live Breaks</div>
-              <div class="link-sub">Spots open &middot; Massive hits every stream</div>
-            </div>
-          </div>
-          <div class="link-pill-tag">WHATNOT</div>
-        </a>
-
-        <!-- TikTok -->
-        <a class="link-pill" href="https://www.tiktok.com/@collectivecardculture" target="_blank" rel="noopener">
-          <div class="link-main">
-            <div class="link-icon">🔥</div>
-            <div class="link-texts">
-              <div class="link-title">TikTok Highlights</div>
-              <div class="link-sub">Clips, hits &amp; behind-the-scenes pulls</div>
-            </div>
-          </div>
-          <div class="link-pill-tag">TIKTOK</div>
-        </a>
-
-        <!-- X -->
-        <a class="link-pill" href="https://x.com/ccardculture?s=21" target="_blank" rel="noopener">
-          <div class="link-main">
-            <div class="link-icon">📢</div>
-            <div class="link-texts">
-              <div class="link-title">Drops &amp; Announcements</div>
-              <div class="link-sub">@CCardCulture on X &middot; Schedules &amp; updates</div>
-            </div>
-          </div>
-          <div class="link-pill-tag">X</div>
-        </a>
-
-        <!-- Facebook -->
-        <a class="link-pill" href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr" target="_blank" rel="noopener">
-          <div class="link-main">
-            <div class="link-icon">👥</div>
-            <div class="link-texts">
-              <div class="link-title">Facebook Community</div>
-              <div class="link-sub">Stay plugged in with the culture</div>
-            </div>
-          </div>
-          <div class="link-pill-tag">FACEBOOK</div>
-        </a>
-
-        <!-- Email -->
-        <a class="link-pill" href="mailto:contactus@collectivecardculture.com" target="_blank" rel="noopener">
-          <div class="link-main">
-            <div class="link-icon">✉️</div>
-            <div class="link-texts">
-              <div class="link-title">Business / Collabs</div>
-              <div class="link-sub">contactus@collectivecardculture.com</div>
-            </div>
-          </div>
-          <div class="link-pill-tag">EMAIL</div>
-        </a>
-      </main>
-
-      <footer class="footer">
-        Powered by <a href="#">Collective Card Culture</a> &middot; The Hobby, Elevated
-      </footer>
+  <main class="card">
+    <!-- Logo / header -->
+    <div class="logo-circle">
+      <span class="logo-text">CC</span>
     </div>
-  </div>
+
+    <h1>COLLECTIVE CARD CULTURE</h1>
+    <p class="subtitle">REAL CARDS &bull; REAL CULTURE&trade; &bull; EST. 2025</p>
+
+    <div class="tagline-wrap">
+      <div class="tagline-pill">DAILY HITS &bull; ZERO MISSES</div>
+    </div>
+
+    <!-- Link buttons -->
+    <section class="links">
+      <!-- Whatnot -->
+      <a class="link-row" href="https://www.whatnot.com/s/r7VoarSI" target="_blank" rel="noopener">
+        <div class="link-main">
+          <div class="link-icon">📺</div>
+          <div class="link-texts">
+            <span class="link-title">Join the Live Breaks</span>
+            <span class="link-subtitle">Spots open • Massive hits every stream</span>
+          </div>
+        </div>
+        <span class="link-badge">WHATNOT</span>
+      </a>
+
+      <!-- TikTok -->
+      <a class="link-row" href="https://www.tiktok.com/@collectivecardculture" target="_blank" rel="noopener">
+        <div class="link-main">
+          <div class="link-icon">🔥</div>
+          <div class="link-texts">
+            <span class="link-title">TikTok Highlights</span>
+            <span class="link-subtitle">Clips, hits &amp; behind-the-scenes pulls</span>
+          </div>
+        </div>
+        <span class="link-badge">TIKTOK</span>
+      </a>
+
+      <!-- X -->
+      <a class="link-row" href="https://x.com/ccardculture?s=21" target="_blank" rel="noopener">
+        <div class="link-main">
+          <div class="link-icon">📢</div>
+          <div class="link-texts">
+            <span class="link-title">Drops &amp; Announcements</span>
+            <span class="link-subtitle">@CCardCulture on X • Schedules &amp; updates</span>
+          </div>
+        </div>
+        <span class="link-badge">X</span>
+      </a>
+
+      <!-- Facebook -->
+      <a class="link-row" href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr" target="_blank" rel="noopener">
+        <div class="link-main">
+          <div class="link-icon">👥</div>
+          <div class="link-texts">
+            <span class="link-title">Facebook Community</span>
+            <span class="link-subtitle">Stay plugged in with the culture</span>
+          </div>
+        </div>
+        <span class="link-badge">FACEBOOK</span>
+      </a>
+
+      <!-- Email -->
+      <a class="link-row" href="mailto:contactus@collectivecardculture.com">
+        <div class="link-main">
+          <div class="link-icon">✉️</div>
+          <div class="link-texts">
+            <span class="link-title">Business / Collabs</span>
+            <span class="link-subtitle">contactus@collectivecardculture.com</span>
+          </div>
+        </div>
+        <span class="link-badge">EMAIL</span>
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>POWERED BY <a href="https://collectivecardculture.github.io" target="_blank" rel="noopener">COLLECTIVE CARD CULTURE</a></div>
+      <div>THE HOBBY, ELEVATED</div>
+    </footer>
+  </main>
 </body>
 </html>
