@@ -1,440 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collective Card Culture · Links</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Collective Card Culture</title>
 
-  <style>
-    :root {
-      --bg-dark: #05030b;
-      --card-bg-top: #191327;
-      --card-bg-bottom: #07030f;
-      --gold: #f3c970;
-      --gold-soft: #e4b86a;
-      --gold-deep: #c79a4b;
-      --text-main: #f7f3ff;
-      --text-soft: #d4cce8;
-      --pill-border: rgba(243, 201, 112, 0.65);
-      --chip-bg: rgba(10, 6, 25, 0.9);
-      --chip-border: rgba(243, 201, 112, 0.85);
-      --shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.9);
-      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.7);
-    }
-
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
+<style>
     body {
-      margin: 0;
-      padding: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      color: var(--text-main);
-      background:
-        radial-gradient(circle at top, #2b1b46 0, transparent 55%),
-        radial-gradient(circle at bottom, #120b23 0, #02000a 65%);
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+            Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        background: #0d0b14;
+        color: white;
+        text-align: center;
     }
 
-    .page {
-      width: 100%;
-      padding: 18px 12px 32px;
+    .container {
+        width: 92%;
+        max-width: 500px;
+        margin: 30px auto 60px;
+        padding: 25px;
+        background: radial-gradient(circle at top, #2a233a, #0f0c16 70%);
+        border-radius: 28px;
+        border: 1px solid #3b334d;
+        box-shadow: 0 0 35px rgba(255, 215, 130, 0.07);
     }
 
-    .card {
-      max-width: 430px;
-      margin: 0 auto;
-      padding: 26px 18px 22px;
-      border-radius: 28px;
-      border: 1px solid rgba(243, 201, 112, 0.22);
-      background: radial-gradient(circle at top, #251836 0, #05020a 62%);
-      box-shadow: var(--shadow-strong);
-      position: relative;
-      overflow: hidden;
+    /* LOGO */
+    .logo {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 10px;
+        background-image: url("Photoroom_20251120_220542.jpeg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        box-shadow: 0 0 45px rgba(255, 210, 120, 0.35);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      border-radius: inherit;
-      background: radial-gradient(
-        circle at top center,
-        rgba(243, 201, 112, 0.18),
-        transparent 60%
-      );
-      opacity: 0.9;
+    h1 {
+        margin-top: 15px;
+        font-size: 22px;
+        letter-spacing: 3px;
+        font-weight: 700;
     }
 
-    .card-inner {
-      position: relative;
-      z-index: 1;
+    .subheader {
+        margin-top: 8px;
+        font-size: 12px;
+        letter-spacing: 3px;
+        opacity: 0.8;
     }
 
-    /* Logo */
-    .logo-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 18px;
+    /* TOP BADGE */
+    .badge {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 10px 22px;
+        border-radius: 30px;
+        border: 1px solid #d6b26a;
+        font-size: 13px;
+        letter-spacing: 2px;
+        color: #f7dca0;
     }
 
-    .logo-circle {
-      width: 116px;
-      height: 116px;
-      border-radius: 50%;
-      background: radial-gradient(circle at top, #f3c970 0, #c38d3a 40%, #0a050f 85%);
-      padding: 4px;
-      box-shadow:
-        0 0 22px rgba(243, 201, 112, 0.75),
-        0 18px 40px rgba(0, 0, 0, 0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    /* LINK BLOCKS */
+    .link-card {
+        background: linear-gradient(145deg, #2d243c, #1b1623);
+        margin-top: 22px;
+        padding: 16px 18px;
+        border-radius: 22px;
+        border: 1px solid #3e3350;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #1a1024;
+    .left {
+        display: flex;
+        align-items: center;
+        text-align: left;
     }
 
-    /* Heading */
+    .icon {
+        font-size: 34px;
+        margin-right: 14px;
+    }
+
     .title {
-      text-align: center;
-      letter-spacing: 0.23em;
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin: 4px 4px 8px;
+        font-size: 17px;
+        font-weight: 600;
+        margin-bottom: 4px;
     }
 
-    .tagline {
-      text-align: center;
-      font-size: 0.74rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin: 0 8px 18px;
-      white-space: normal;
+    .subtitle {
+        font-size: 12px;  /* SMALLER for Option C */
+        opacity: 0.85;
+        line-height: 1.2;
+        max-width: 180px; /* ensures clean wrapping */
     }
 
-    .pill-row {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+    /* BUTTONS */
+    .link-btn {
+        padding: 8px 18px;
+        border-radius: 20px;
+        border: 1px solid #d6b26a;
+        color: #f7dca0;
+        font-size: 12px;
+        letter-spacing: 2px;
+        text-decoration: none;
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 28px;
-      border-radius: 999px;
-      border: 1px solid var(--pill-border);
-      background: radial-gradient(
-        circle at top,
-        rgba(243, 201, 112, 0.18),
-        rgba(8, 5, 22, 0.9)
-      );
-      box-shadow:
-        0 0 18px rgba(243, 201, 112, 0.25),
-        0 10px 25px rgba(0, 0, 0, 0.85);
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-      white-space: nowrap;
-    }
-
-    /* Links list */
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    a.link-card {
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 12px 16px;
-      border-radius: 24px;
-      border: 1px solid rgba(243, 201, 112, 0.2);
-      background: radial-gradient(
-        circle at top left,
-        rgba(243, 201, 112, 0.28),
-        rgba(4, 2, 14, 0.98)
-      );
-      box-shadow: var(--shadow-soft);
-      position: relative;
-    }
-
-    a.link-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      pointer-events: none;
-    }
-
-    .link-main {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex: 1 1 auto;
-      min-width: 0;
-    }
-
-    .icon-circle {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.18rem;
-      background: radial-gradient(circle at top, #ffefc2 0, #f3c970 40%, #b47224 90%);
-      box-shadow:
-        0 0 12px rgba(243, 201, 112, 0.75),
-        0 8px 22px rgba(0, 0, 0, 0.85);
-      flex-shrink: 0;
-    }
-
-    .link-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .link-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: none;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .link-subtitle {
-      font-size: 0.78rem;
-      color: var(--text-soft);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .chip {
-      flex-shrink: 0;
-      padding: 8px 18px;
-      border-radius: 999px;
-      border: 1px solid var(--chip-border);
-      background: radial-gradient(
-        circle at top,
-        rgba(243, 201, 112, 0.32),
-        var(--chip-bg)
-      );
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-    }
-
-    /* Footer */
+    /* FOOTER */
     .footer {
-      margin-top: 18px;
-      text-align: center;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(223, 209, 255, 0.78);
+        margin-top: 35px;
+        font-size: 11px;
+        opacity: 0.7;
+        letter-spacing: 2px;
+        line-height: 1.4;
     }
-
-    .footer span.brand {
-      color: var(--gold);
-      font-weight: 600;
-    }
-
-    /* Mobile tweaks */
-    @media (max-width: 400px) {
-      .card {
-        padding: 22px 14px 20px;
-      }
-
-      .logo-circle {
-        width: 108px;
-        height: 108px;
-      }
-
-      .title {
-        font-size: 1rem;
-        letter-spacing: 0.2em;
-      }
-
-      .tagline {
-        font-size: 0.7rem;
-        letter-spacing: 0.16em;
-      }
-
-      .pill {
-        padding-inline: 18px;
-        font-size: 0.74rem;
-        letter-spacing: 0.18em;
-      }
-
-      a.link-card {
-        padding-inline: 13px;
-      }
-
-      .link-title {
-        font-size: 0.95rem;
-      }
-
-      .link-subtitle {
-        font-size: 0.76rem;
-      }
-
-      .chip {
-        padding-inline: 14px;
-        letter-spacing: 0.18em;
-        font-size: 0.74rem;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <main class="card">
-      <div class="card-inner">
-        <!-- Logo -->
-        <div class="logo-wrap">
-          <div class="logo-circle">
-            <!-- Use the image you uploaded to GitHub -->
-            <img
-              src="Photoroom_20251120_220542.jpeg"
-              alt="Collective Card Culture logo"
-            />
-          </div>
+<div class="container">
+
+    <div class="logo"></div>
+
+    <h1>COLLECTIVE CARD CULTURE</h1>
+
+    <div class="subheader">REAL CARDS • REAL CULTURE™ • EST. 2025</div>
+
+    <div class="badge">DAILY HITS • ZERO MISSES</div>
+
+    <!-- LIVE BREAKS -->
+    <div class="link-card">
+        <div class="left">
+            <div class="icon">📺</div>
+            <div>
+                <div class="title">Join the Live Breaks</div>
+                <div class="subtitle">Spots open · Nightly massive hits</div>
+            </div>
         </div>
+        <a class="link-btn" href="https://whatnot.com">WHATNOT</a>
+    </div>
 
-        <!-- Heading -->
-        <h1 class="title">COLLECTIVE CARD CULTURE</h1>
-        <p class="tagline">REAL CARDS · REAL CULTURE™ · EST. 2025</p>
-
-        <!-- Centered pill -->
-        <div class="pill-row">
-          <div class="pill">DAILY HITS · ZERO MISSES</div>
+    <!-- TIKTOK -->
+    <div class="link-card">
+        <div class="left">
+            <div class="icon">🔥</div>
+            <div>
+                <div class="title">TikTok Highlights</div>
+                <div class="subtitle">Clips, hits & behind-the-scenes</div>
+            </div>
         </div>
+        <a class="link-btn" href="https://tiktok.com">TIKTOK</a>
+    </div>
 
-        <!-- Links -->
-        <section class="links" aria-label="Collective Card Culture Links">
-          <!-- Whatnot -->
-          <a
-            class="link-card"
-            href="https://www.whatnot.com/s/r7VoarSI"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="link-main">
-              <div class="icon-circle">📺</div>
-              <div class="link-text">
-                <div class="link-title">Join the Live Breaks</div>
-                <div class="link-subtitle">Spots open · Massive hits nightly</div>
-              </div>
+    <!-- DROPS -->
+    <div class="link-card">
+        <div class="left">
+            <div class="icon">📣</div>
+            <div>
+                <div class="title">Drops & Announcements</div>
+                <div class="subtitle">@CCardCulture · Schedules & news</div>
             </div>
-            <div class="chip">WHATNOT</div>
-          </a>
-
-          <!-- TikTok -->
-          <a
-            class="link-card"
-            href="https://www.tiktok.com/@collectivecardculture"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="link-main">
-              <div class="icon-circle">🔥</div>
-              <div class="link-text">
-                <div class="link-title">TikTok Highlights</div>
-                <div class="link-subtitle">Clips, hits &amp; behind-the-scenes</div>
-              </div>
-            </div>
-            <div class="chip">TIKTOK</div>
-          </a>
-
-          <!-- X / Twitter -->
-          <a
-            class="link-card"
-            href="https://x.com/ccardculture?s=21"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="link-main">
-              <div class="icon-circle">📣</div>
-              <div class="link-text">
-                <div class="link-title">Drops &amp; Announcements</div>
-                <div class="link-subtitle">@CCardCulture on X · Schedules &amp; updates</div>
-              </div>
-            </div>
-            <div class="chip">X</div>
-          </a>
-
-          <!-- Facebook -->
-          <a
-            class="link-card"
-            href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div class="link-main">
-              <div class="icon-circle">👥</div>
-              <div class="link-text">
-                <div class="link-title">Facebook Community</div>
-                <div class="link-subtitle">Stay plugged in with the culture</div>
-              </div>
-            </div>
-            <div class="chip">FACEBOOK</div>
-          </a>
-
-          <!-- Email -->
-          <a
-            class="link-card"
-            href="mailto:contactus@collectivecardculture.com"
-          >
-            <div class="link-main">
-              <div class="icon-circle">📨</div>
-              <div class="link-text">
-                <div class="link-title">Business / Collabs</div>
-                <div class="link-subtitle">contactus@collectivecardculture.com</div>
-              </div>
-            </div>
-            <div class="chip">EMAIL</div>
-          </a>
-        </section>
-
-        <!-- Footer -->
-        <div class="footer">
-          POWERED BY <span class="brand">COLLECTIVE CARD CULTURE</span> ·
-          THE HOBBY, ELEVATED
         </div>
-      </div>
-    </main>
-  </div>
+        <a class="link-btn" href="https://x.com">X</a>
+    </div>
+
+    <!-- FACEBOOK -->
+    <div class="link-card">
+        <div class="left">
+            <div class="icon">👥</div>
+            <div>
+                <div class="title">Facebook Community</div>
+                <div class="subtitle">Stay plugged in with the culture</div>
+            </div>
+        </div>
+        <a class="link-btn" href="https://facebook.com">FACEBOOK</a>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="link-card">
+        <div class="left">
+            <div class="icon">✉️</div>
+            <div>
+                <div class="title">Business / Collabs</div>
+                <div class="subtitle">contactus@collectivecardculture.com</div>
+            </div>
+        </div>
+        <a class="link-btn" href="mailto:contactus@collectivecardculture.com">EMAIL</a>
+    </div>
+
+    <div class="footer">
+        POWERED BY COLLECTIVE CARD CULTURE<br>
+        THE HOBBY, ELEVATED
+    </div>
+
+</div>
 </body>
 </html>
