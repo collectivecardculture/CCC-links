@@ -2,74 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Collective Card Culture – Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collective Card Culture · Links</title>
+
   <style>
     :root {
-      --bg-dark: #05040a;
-      --card-bg: #151224;
-      --card-bg-alt: #18152a;
-      --accent: #f5c15a;
-      --accent-soft: #c89a46;
-      --accent-glow: rgba(245, 193, 90, 0.35);
-      --text-main: #ffffff;
-      --text-sub: #d0c6ff;
-      --text-muted: #a29bbf;
-      --border-soft: #3a314f;
-      --button-bg: #1f182b;
-      --button-border: #f5c15a;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
-      --radius-big: 26px;
-      --radius-pill: 999px;
+      --bg-dark: #05030b;
+      --card-bg-top: #191327;
+      --card-bg-bottom: #07030f;
+      --gold: #f3c970;
+      --gold-soft: #e4b86a;
+      --gold-deep: #c79a4b;
+      --text-main: #f7f3ff;
+      --text-soft: #d4cce8;
+      --pill-border: rgba(243, 201, 112, 0.65);
+      --chip-bg: rgba(10, 6, 25, 0.9);
+      --chip-border: rgba(243, 201, 112, 0.85);
+      --shadow-strong: 0 24px 60px rgba(0, 0, 0, 0.9);
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.7);
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #1b1430 0, #05040a 55%) fixed;
-      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 32px 12px 40px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at top, #2b1b46 0, transparent 55%),
+        radial-gradient(circle at bottom, #120b23 0, #02000a 65%);
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .card-frame {
+    .page {
       width: 100%;
-      max-width: 480px;
-      background: radial-gradient(circle at top, #221834 0, #08040f 55%);
-      border-radius: 34px;
-      border: 1px solid rgba(245, 193, 90, 0.12);
-      box-shadow: var(--shadow-soft);
-      padding: 26px 18px 26px;
+      padding: 18px 12px 32px;
+    }
+
+    .card {
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 26px 18px 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(243, 201, 112, 0.22);
+      background: radial-gradient(circle at top, #251836 0, #05020a 62%);
+      box-shadow: var(--shadow-strong);
       position: relative;
       overflow: hidden;
     }
 
-    .card-inner-border {
-      border-radius: 26px;
-      border: 1px solid rgba(245, 193, 90, 0.16);
-      padding: 22px 18px 20px;
-      background: radial-gradient(circle at top, #211733 0, #0c0715 55%);
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: radial-gradient(
+        circle at top center,
+        rgba(243, 201, 112, 0.18),
+        transparent 60%
+      );
+      opacity: 0.9;
     }
 
-    /* Logo circle */
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Logo */
     .logo-wrap {
       display: flex;
       justify-content: center;
@@ -77,122 +87,146 @@
     }
 
     .logo-circle {
-      width: 108px;
-      height: 108px;
+      width: 116px;
+      height: 116px;
       border-radius: 50%;
-      background: radial-gradient(circle at top, #2c2343 0, #07040c 60%);
+      background: radial-gradient(circle at top, #f3c970 0, #c38d3a 40%, #0a050f 85%);
+      padding: 4px;
       box-shadow:
-        0 0 40px rgba(245, 193, 90, 0.55),
-        0 10px 30px rgba(0, 0, 0, 0.9);
-      border: 1px solid rgba(245, 193, 90, 0.7);
+        0 0 22px rgba(243, 201, 112, 0.75),
+        0 18px 40px rgba(0, 0, 0, 0.85);
       display: flex;
-      align-items: center;
       justify-content: center;
-      overflow: hidden;
+      align-items: center;
     }
 
-    .logo-circle::before {
-      content: "";
-      width: 92%;
-      height: 92%;
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
       border-radius: 50%;
-      background-image: url("Photoroom_20251120_220542.jpeg");
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
+      object-fit: cover;
+      border: 3px solid #1a1024;
     }
 
     /* Heading */
-    .brand-name {
+    .title {
       text-align: center;
-      font-size: 1.25rem;
+      letter-spacing: 0.23em;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin: 4px 4px 8px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 0.74rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-bottom: 6px;
+      color: var(--text-soft);
+      margin: 0 8px 18px;
+      white-space: normal;
     }
 
-    .brand-sub {
-      text-align: center;
-      font-size: 0.68rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 12px;
+    .pill-row {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
-    .brand-tagline {
+    .pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      align-self: center;
-      margin: 0 auto 20px;
-      padding: 9px 18px 8px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(245, 193, 90, 0.4);
-      background: radial-gradient(circle at top, rgba(245, 193, 90, 0.1), transparent);
-      color: var(--accent);
-      font-size: 0.74rem;
+      padding: 8px 28px;
+      border-radius: 999px;
+      border: 1px solid var(--pill-border);
+      background: radial-gradient(
+        circle at top,
+        rgba(243, 201, 112, 0.18),
+        rgba(8, 5, 22, 0.9)
+      );
+      box-shadow:
+        0 0 18px rgba(243, 201, 112, 0.25),
+        0 10px 25px rgba(0, 0, 0, 0.85);
+      font-size: 0.78rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
+      color: var(--gold-soft);
       white-space: nowrap;
     }
 
-    .brand-tagline span {
-      text-align: center;
-    }
-
-    /* Link list */
-    .link-list {
+    /* Links list */
+    .links {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 18px;
     }
 
-    .link-card {
+    a.link-card {
+      text-decoration: none;
+      color: inherit;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 14px;
-      padding: 11px 14px;
-      border-radius: var(--radius-big);
-      background: radial-gradient(circle at top left, #2b2045 0, #120c22 55%);
-      border: 1px solid rgba(245, 193, 90, 0.14);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+      padding: 12px 16px;
+      border-radius: 24px;
+      border: 1px solid rgba(243, 201, 112, 0.2);
+      background: radial-gradient(
+        circle at top left,
+        rgba(243, 201, 112, 0.28),
+        rgba(4, 2, 14, 0.98)
+      );
+      box-shadow: var(--shadow-soft);
       position: relative;
     }
 
-    .link-card:nth-child(even) {
-      background: radial-gradient(circle at top left, #251b40 0, #0f0a1e 55%);
+    a.link-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      pointer-events: none;
     }
 
-    .link-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 20px;
+    .link-main {
       display: flex;
       align-items: center;
+      gap: 10px;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
       justify-content: center;
-      font-size: 1.25rem;
-      background: radial-gradient(circle at top, #ffdf9a 0, #e0983e 55%);
+      align-items: center;
+      font-size: 1.18rem;
+      background: radial-gradient(circle at top, #ffefc2 0, #f3c970 40%, #b47224 90%);
       box-shadow:
-        0 0 18px rgba(245, 193, 90, 0.7),
-        0 6px 18px rgba(0, 0, 0, 0.9);
+        0 0 12px rgba(243, 201, 112, 0.75),
+        0 8px 22px rgba(0, 0, 0, 0.85);
       flex-shrink: 0;
     }
 
-    .link-text-wrap {
-      flex: 1;
-      min-width: 0;
+    .link-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      gap: 2px;
+      min-width: 0;
     }
 
     .link-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 600;
-      margin-bottom: 2px;
-      color: var(--text-main);
+      letter-spacing: 0.04em;
+      text-transform: none;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -200,162 +234,207 @@
 
     .link-subtitle {
       font-size: 0.78rem;
-      color: var(--text-sub);
-      line-height: 1.35;
-      /* allow wrap but prevent going under button */
-      padding-right: 8px;
+      color: var(--text-soft);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .link-button {
+    .chip {
       flex-shrink: 0;
-      padding: 7px 16px 6px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--button-border);
-      background: radial-gradient(circle at top, #3b2a4e 0, #1b122c 55%);
-      color: var(--accent);
-      font-size: 0.75rem;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--chip-border);
+      background: radial-gradient(
+        circle at top,
+        rgba(243, 201, 112, 0.32),
+        var(--chip-bg)
+      );
+      font-size: 0.78rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      text-align: center;
-      margin-left: 8px;
-      box-shadow: 0 0 18px rgba(245, 193, 90, 0.55);
+      color: var(--gold-soft);
     }
 
     /* Footer */
     .footer {
+      margin-top: 18px;
       text-align: center;
-      font-size: 0.64rem;
-      color: var(--text-muted);
-      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-top: 4px;
+      color: rgba(223, 209, 255, 0.78);
     }
 
     .footer span.brand {
-      color: var(--accent-soft);
+      color: var(--gold);
+      font-weight: 600;
     }
 
     /* Mobile tweaks */
     @media (max-width: 400px) {
-      body {
-        padding-top: 24px;
+      .card {
+        padding: 22px 14px 20px;
       }
 
-      .card-inner-border {
-        padding: 20px 14px 18px;
+      .logo-circle {
+        width: 108px;
+        height: 108px;
       }
 
-      .brand-name {
-        font-size: 1.05rem;
-        letter-spacing: 0.13em;
-      }
-
-      .brand-sub {
-        font-size: 0.64rem;
+      .title {
+        font-size: 1rem;
         letter-spacing: 0.2em;
       }
 
-      .brand-tagline {
+      .tagline {
         font-size: 0.7rem;
-        letter-spacing: 0.18em;
-        padding-inline: 14px;
+        letter-spacing: 0.16em;
       }
 
-      .link-card {
-        padding: 10px 12px;
+      .pill {
+        padding-inline: 18px;
+        font-size: 0.74rem;
+        letter-spacing: 0.18em;
+      }
+
+      a.link-card {
+        padding-inline: 13px;
       }
 
       .link-title {
-        font-size: 0.96rem;
+        font-size: 0.95rem;
       }
 
       .link-subtitle {
-        font-size: 0.74rem;
+        font-size: 0.76rem;
       }
 
-      .link-button {
-        padding-inline: 12px;
+      .chip {
+        padding-inline: 14px;
         letter-spacing: 0.18em;
+        font-size: 0.74rem;
       }
     }
   </style>
 </head>
 <body>
-  <main class="card-frame">
-    <section class="card-inner-border">
-      <!-- Logo -->
-      <div class="logo-wrap">
-        <div class="logo-circle" aria-label="Collective Card Culture logo"></div>
+  <div class="page">
+    <main class="card">
+      <div class="card-inner">
+        <!-- Logo -->
+        <div class="logo-wrap">
+          <div class="logo-circle">
+            <!-- Use the image you uploaded to GitHub -->
+            <img
+              src="Photoroom_20251120_220542.jpeg"
+              alt="Collective Card Culture logo"
+            />
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="title">COLLECTIVE CARD CULTURE</h1>
+        <p class="tagline">REAL CARDS · REAL CULTURE™ · EST. 2025</p>
+
+        <!-- Centered pill -->
+        <div class="pill-row">
+          <div class="pill">DAILY HITS · ZERO MISSES</div>
+        </div>
+
+        <!-- Links -->
+        <section class="links" aria-label="Collective Card Culture Links">
+          <!-- Whatnot -->
+          <a
+            class="link-card"
+            href="https://www.whatnot.com/s/r7VoarSI"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="link-main">
+              <div class="icon-circle">📺</div>
+              <div class="link-text">
+                <div class="link-title">Join the Live Breaks</div>
+                <div class="link-subtitle">Spots open · Massive hits nightly</div>
+              </div>
+            </div>
+            <div class="chip">WHATNOT</div>
+          </a>
+
+          <!-- TikTok -->
+          <a
+            class="link-card"
+            href="https://www.tiktok.com/@collectivecardculture"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="link-main">
+              <div class="icon-circle">🔥</div>
+              <div class="link-text">
+                <div class="link-title">TikTok Highlights</div>
+                <div class="link-subtitle">Clips, hits &amp; behind-the-scenes</div>
+              </div>
+            </div>
+            <div class="chip">TIKTOK</div>
+          </a>
+
+          <!-- X / Twitter -->
+          <a
+            class="link-card"
+            href="https://x.com/ccardculture?s=21"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="link-main">
+              <div class="icon-circle">📣</div>
+              <div class="link-text">
+                <div class="link-title">Drops &amp; Announcements</div>
+                <div class="link-subtitle">@CCardCulture on X · Schedules &amp; updates</div>
+              </div>
+            </div>
+            <div class="chip">X</div>
+          </a>
+
+          <!-- Facebook -->
+          <a
+            class="link-card"
+            href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="link-main">
+              <div class="icon-circle">👥</div>
+              <div class="link-text">
+                <div class="link-title">Facebook Community</div>
+                <div class="link-subtitle">Stay plugged in with the culture</div>
+              </div>
+            </div>
+            <div class="chip">FACEBOOK</div>
+          </a>
+
+          <!-- Email -->
+          <a
+            class="link-card"
+            href="mailto:contactus@collectivecardculture.com"
+          >
+            <div class="link-main">
+              <div class="icon-circle">📨</div>
+              <div class="link-text">
+                <div class="link-title">Business / Collabs</div>
+                <div class="link-subtitle">contactus@collectivecardculture.com</div>
+              </div>
+            </div>
+            <div class="chip">EMAIL</div>
+          </a>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+          POWERED BY <span class="brand">COLLECTIVE CARD CULTURE</span> ·
+          THE HOBBY, ELEVATED
+        </div>
       </div>
-
-      <!-- Headings -->
-      <h1 class="brand-name">COLLECTIVE CARD CULTURE</h1>
-      <p class="brand-sub">REAL CARDS &nbsp;•&nbsp; REAL CULTURE™ &nbsp;•&nbsp; EST. 2025</p>
-
-      <div class="brand-tagline">
-        <span>DAILY HITS &nbsp;•&nbsp; ZERO MISSES</span>
-      </div>
-
-      <!-- Links -->
-      <div class="link-list">
-
-        <!-- Whatnot -->
-        <a class="link-card" href="https://www.whatnot.com/s/r7VoarSI" target="_blank" rel="noopener">
-          <div class="link-icon">📺</div>
-          <div class="link-text-wrap">
-            <div class="link-title">Join the Live Breaks</div>
-            <div class="link-subtitle">Spots open · Massive hits nightly</div>
-          </div>
-          <div class="link-button">WHATNOT</div>
-        </a>
-
-        <!-- TikTok -->
-        <a class="link-card" href="https://www.tiktok.com/@collectivecardculture" target="_blank" rel="noopener">
-          <div class="link-icon">🔥</div>
-          <div class="link-text-wrap">
-            <div class="link-title">TikTok Highlights</div>
-            <div class="link-subtitle">Clips, hits &amp; behind-the-scenes</div>
-          </div>
-          <div class="link-button">TIKTOK</div>
-        </a>
-
-        <!-- X -->
-        <a class="link-card" href="https://x.com/ccardculture?s=21" target="_blank" rel="noopener">
-          <div class="link-icon">📣</div>
-          <div class="link-text-wrap">
-            <div class="link-title">Drops &amp; Announcements</div>
-            <div class="link-subtitle">@CCardCulture on X · Schedules &amp; updates</div>
-          </div>
-          <div class="link-button">X</div>
-        </a>
-
-        <!-- Facebook -->
-        <a class="link-card" href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr" target="_blank" rel="noopener">
-          <div class="link-icon">👥</div>
-          <div class="link-text-wrap">
-            <div class="link-title">Facebook Community</div>
-            <div class="link-subtitle">Stay plugged in with the culture</div>
-          </div>
-          <div class="link-button">FACEBOOK</div>
-        </a>
-
-        <!-- Email -->
-        <a class="link-card" href="mailto:contactus@collectivecardculture.com">
-          <div class="link-icon">✉️</div>
-          <div class="link-text-wrap">
-            <div class="link-title">Business / Collabs</div>
-            <div class="link-subtitle">contactus@collectivecardculture.com</div>
-          </div>
-          <div class="link-button">EMAIL</div>
-        </a>
-
-      </div>
-
-      <!-- Footer -->
-      <div class="footer">
-        POWERED BY <span class="brand">COLLECTIVE CARD CULTURE</span> · THE HOBBY, ELEVATED
-      </div>
-    </section>
-  </main>
+    </main>
+  </div>
 </body>
 </html>
