@@ -1,347 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collective Card Culture · Links</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Collective Card Culture – Links</title>
+  <style>
+    :root {
+      --bg-dark: #05040a;
+      --card-bg: #151224;
+      --card-bg-alt: #18152a;
+      --accent: #f5c15a;
+      --accent-soft: #c89a46;
+      --accent-glow: rgba(245, 193, 90, 0.35);
+      --text-main: #ffffff;
+      --text-sub: #d0c6ff;
+      --text-muted: #a29bbf;
+      --border-soft: #3a314f;
+      --button-bg: #1f182b;
+      --button-border: #f5c15a;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
+      --radius-big: 26px;
+      --radius-pill: 999px;
+    }
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-        :root {
-            --bg-main: #05050a;
-            --bg-card: radial-gradient(circle at top left, #31213b 0%, #12101a 55%, #05050a 100%);
-            --bg-pill: linear-gradient(135deg, #271a37 0%, #10101b 60%, #080810 100%);
-            --accent: #f4c46a;
-            --accent-soft: rgba(244, 196, 106, 0.3);
-            --accent-strong: rgba(244, 196, 106, 0.85);
-            --text-main: #ffffff;
-            --text-subtle: rgba(255, 255, 255, 0.72);
-            --border-soft: rgba(244, 196, 106, 0.25);
-            --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.8);
-            --radius-xl: 26px;
-            --radius-pill: 999px;
-        }
+    html, body {
+      height: 100%;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #1b1430 0, #05040a 55%) fixed;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 32px 12px 40px;
+    }
 
-        html, body {
-            height: 100%;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        body {
-            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #1a1427 0%, #05050a 50%, #020206 100%);
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px 10px 26px;
-        }
+    .card-frame {
+      width: 100%;
+      max-width: 480px;
+      background: radial-gradient(circle at top, #221834 0, #08040f 55%);
+      border-radius: 34px;
+      border: 1px solid rgba(245, 193, 90, 0.12);
+      box-shadow: var(--shadow-soft);
+      padding: 26px 18px 26px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .frame {
-            width: 100%;
-            max-width: 460px;
-            background: var(--bg-card);
-            border-radius: 32px;
-            padding: 26px 18px 20px;
-            border: 1px solid rgba(244, 196, 106, 0.35);
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-        }
+    .card-inner-border {
+      border-radius: 26px;
+      border: 1px solid rgba(245, 193, 90, 0.16);
+      padding: 22px 18px 20px;
+      background: radial-gradient(circle at top, #211733 0, #0c0715 55%);
+    }
 
-        /* Glow border */
-        .frame::before {
-            content: "";
-            position: absolute;
-            inset: 1px;
-            border-radius: 30px;
-            border: 1px solid rgba(244, 196, 106, 0.18);
-            pointer-events: none;
-        }
+    /* Logo circle */
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
 
-        /* Top logo */
-        .logo-wrap {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
+    .logo-circle {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top, #2c2343 0, #07040c 60%);
+      box-shadow:
+        0 0 40px rgba(245, 193, 90, 0.55),
+        0 10px 30px rgba(0, 0, 0, 0.9);
+      border: 1px solid rgba(245, 193, 90, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-        .logo-wrap img {
-            width: 108px;
-            height: 108px;
-            border-radius: 50%;
-            object-fit: contain;
-            background: radial-gradient(circle at 30% 0%, #4a3654 0%, #05050a 70%);
-            padding: 10px;
-            box-shadow:
-                0 0 32px rgba(244, 196, 106, 0.45),
-                0 14px 32px rgba(0, 0, 0, 0.85);
-        }
+    .logo-circle::before {
+      content: "";
+      width: 92%;
+      height: 92%;
+      border-radius: 50%;
+      background-image: url("Photoroom_20251120_220542.jpeg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
-        .headline-block {
-            text-align: center;
-            margin-bottom: 18px;
-            padding: 0 6px;
-        }
+    /* Heading */
+    .brand-name {
+      text-align: center;
+      font-size: 1.25rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
 
-        .headline-title {
-            font-size: 20px;
-            letter-spacing: 0.26em;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
+    .brand-sub {
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
 
-        .headline-sub {
-            font-size: 11px;
-            letter-spacing: 0.26em;
-            text-transform: uppercase;
-            color: var(--text-subtle);
-        }
+    .brand-tagline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      margin: 0 auto 20px;
+      padding: 9px 18px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 193, 90, 0.4);
+      background: radial-gradient(circle at top, rgba(245, 193, 90, 0.1), transparent);
+      color: var(--accent);
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
 
-        .tag-pill {
-            margin: 22px auto 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 22px;
-            border-radius: var(--radius-pill);
-            border: 1px solid var(--border-soft);
-            background: rgba(11, 9, 18, 0.85);
-            font-size: 11px;
-            letter-spacing: 0.28em;
-            text-transform: uppercase;
-            color: var(--accent);
-            white-space: nowrap;
-        }
+    .brand-tagline span {
+      text-align: center;
+    }
 
-        .links-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 22px;
-        }
+    /* Link list */
+    .link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
 
-        .link-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 12px 14px 12px 12px;
-            border-radius: var(--radius-xl);
-            background: var(--bg-pill);
-            border: 1px solid rgba(244, 196, 106, 0.28);
-            box-shadow: 0 18px 34px rgba(0, 0, 0, 0.9);
-        }
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 11px 14px;
+      border-radius: var(--radius-big);
+      background: radial-gradient(circle at top left, #2b2045 0, #120c22 55%);
+      border: 1px solid rgba(245, 193, 90, 0.14);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.9);
+      position: relative;
+    }
 
-        .link-main {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-width: 0;
-        }
+    .link-card:nth-child(even) {
+      background: radial-gradient(circle at top left, #251b40 0, #0f0a1e 55%);
+    }
 
-        .icon-badge {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 0%, #f7d38b 0%, #c38a43 42%, #7c4b27 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow:
-                0 0 20px rgba(244, 196, 106, 0.45),
-                0 12px 24px rgba(0, 0, 0, 0.8);
-            font-size: 20px;
-        }
+    .link-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      background: radial-gradient(circle at top, #ffdf9a 0, #e0983e 55%);
+      box-shadow:
+        0 0 18px rgba(245, 193, 90, 0.7),
+        0 6px 18px rgba(0, 0, 0, 0.9);
+      flex-shrink: 0;
+    }
 
-        .link-text-block {
-            display: flex;
-            flex-direction: column;
-            min-width: 0;
-        }
+    .link-text-wrap {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        .link-title {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    .link-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-        .link-sub {
-            font-size: 12px;
-            color: var(--text-subtle);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    .link-subtitle {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      line-height: 1.35;
+      /* allow wrap but prevent going under button */
+      padding-right: 8px;
+    }
 
-        .pill-btn {
-            flex-shrink: 0;
-            padding: 8px 18px;
-            border-radius: var(--radius-pill);
-            border: 1px solid rgba(244, 196, 106, 0.75);
-            color: var(--accent);
-            font-size: 11px;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            text-decoration: none;
-            background: radial-gradient(circle at top left, rgba(244, 196, 106, 0.18), rgba(6, 4, 12, 0.92));
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .link-button {
+      flex-shrink: 0;
+      padding: 7px 16px 6px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--button-border);
+      background: radial-gradient(circle at top, #3b2a4e 0, #1b122c 55%);
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-left: 8px;
+      box-shadow: 0 0 18px rgba(245, 193, 90, 0.55);
+    }
 
-        .pill-btn:hover {
-            background: radial-gradient(circle at top left, rgba(244, 196, 106, 0.32), rgba(8, 6, 18, 0.96));
-        }
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 0.64rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
 
-        .footer {
-            text-align: center;
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.68);
-            letter-spacing: 0.24em;
-            text-transform: uppercase;
-            line-height: 1.7;
-        }
+    .footer span.brand {
+      color: var(--accent-soft);
+    }
 
-        .footer span.brand {
-            color: var(--accent);
-        }
+    /* Mobile tweaks */
+    @media (max-width: 400px) {
+      body {
+        padding-top: 24px;
+      }
 
-        /* Mobile tweaks */
-        @media (max-width: 380px) {
-            .frame {
-                padding: 22px 12px 18px;
-            }
+      .card-inner-border {
+        padding: 20px 14px 18px;
+      }
 
-            .headline-title {
-                font-size: 18px;
-                letter-spacing: 0.22em;
-            }
+      .brand-name {
+        font-size: 1.05rem;
+        letter-spacing: 0.13em;
+      }
 
-            .tag-pill {
-                font-size: 10px;
-                letter-spacing: 0.22em;
-                padding-inline: 18px;
-            }
+      .brand-sub {
+        font-size: 0.64rem;
+        letter-spacing: 0.2em;
+      }
 
-            .link-card {
-                padding-inline: 10px;
-            }
+      .brand-tagline {
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        padding-inline: 14px;
+      }
 
-            .link-title {
-                font-size: 14px;
-            }
+      .link-card {
+        padding: 10px 12px;
+      }
 
-            .link-sub {
-                font-size: 11px;
-            }
+      .link-title {
+        font-size: 0.96rem;
+      }
 
-            .pill-btn {
-                padding-inline: 14px;
-                font-size: 10px;
-                letter-spacing: 0.2em;
-            }
-        }
-    </style>
+      .link-subtitle {
+        font-size: 0.74rem;
+      }
+
+      .link-button {
+        padding-inline: 12px;
+        letter-spacing: 0.18em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="frame">
-        <!-- Logo -->
-        <div class="logo-wrap">
-            <!-- Make sure IMG_3274.jpeg exists in the repo -->
-            <img src="IMG_3274.jpeg" alt="Collective Card Culture logo" />
-        </div>
+  <main class="card-frame">
+    <section class="card-inner-border">
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <div class="logo-circle" aria-label="Collective Card Culture logo"></div>
+      </div>
 
-        <!-- Headline -->
-        <div class="headline-block">
-            <div class="headline-title">COLLECTIVE CARD CULTURE</div>
-            <div class="headline-sub">REAL CARDS · REAL CULTURE™ · EST. 2025</div>
-        </div>
+      <!-- Headings -->
+      <h1 class="brand-name">COLLECTIVE CARD CULTURE</h1>
+      <p class="brand-sub">REAL CARDS &nbsp;•&nbsp; REAL CULTURE™ &nbsp;•&nbsp; EST. 2025</p>
 
-        <!-- Tagline pill -->
-        <div class="tag-pill">DAILY HITS · ZERO MISSES</div>
+      <div class="brand-tagline">
+        <span>DAILY HITS &nbsp;•&nbsp; ZERO MISSES</span>
+      </div>
 
-        <!-- Links -->
-        <div class="links-stack">
+      <!-- Links -->
+      <div class="link-list">
 
-            <!-- Whatnot -->
-            <a class="link-card" href="https://www.whatnot.com/s/r7VoarSI" target="_blank" rel="noopener noreferrer">
-                <div class="link-main">
-                    <div class="icon-badge">📺</div>
-                    <div class="link-text-block">
-                        <div class="link-title">Join the Live Breaks</div>
-                        <div class="link-sub">Spots open · Massive hits nightly</div>
-                    </div>
-                </div>
-                <div class="pill-btn">WHATNOT</div>
-            </a>
+        <!-- Whatnot -->
+        <a class="link-card" href="https://www.whatnot.com/s/r7VoarSI" target="_blank" rel="noopener">
+          <div class="link-icon">📺</div>
+          <div class="link-text-wrap">
+            <div class="link-title">Join the Live Breaks</div>
+            <div class="link-subtitle">Spots open · Massive hits nightly</div>
+          </div>
+          <div class="link-button">WHATNOT</div>
+        </a>
 
-            <!-- TikTok -->
-            <a class="link-card" href="https://www.tiktok.com/@collectivecardculture" target="_blank" rel="noopener noreferrer">
-                <div class="link-main">
-                    <div class="icon-badge">🔥</div>
-                    <div class="link-text-block">
-                        <div class="link-title">TikTok Highlights</div>
-                        <div class="link-sub">Clips, hits &amp; behind-the-scenes</div>
-                    </div>
-                </div>
-                <div class="pill-btn">TIKTOK</div>
-            </a>
+        <!-- TikTok -->
+        <a class="link-card" href="https://www.tiktok.com/@collectivecardculture" target="_blank" rel="noopener">
+          <div class="link-icon">🔥</div>
+          <div class="link-text-wrap">
+            <div class="link-title">TikTok Highlights</div>
+            <div class="link-subtitle">Clips, hits &amp; behind-the-scenes</div>
+          </div>
+          <div class="link-button">TIKTOK</div>
+        </a>
 
-            <!-- X -->
-            <a class="link-card" href="https://x.com/ccardculture?s=21" target="_blank" rel="noopener noreferrer">
-                <div class="link-main">
-                    <div class="icon-badge">📣</div>
-                    <div class="link-text-block">
-                        <div class="link-title">Drops &amp; Announcements</div>
-                        <div class="link-sub">@CCardCulture on X · Schedules &amp; updates</div>
-                    </div>
-                </div>
-                <div class="pill-btn">X</div>
-            </a>
+        <!-- X -->
+        <a class="link-card" href="https://x.com/ccardculture?s=21" target="_blank" rel="noopener">
+          <div class="link-icon">📣</div>
+          <div class="link-text-wrap">
+            <div class="link-title">Drops &amp; Announcements</div>
+            <div class="link-subtitle">@CCardCulture on X · Schedules &amp; updates</div>
+          </div>
+          <div class="link-button">X</div>
+        </a>
 
-            <!-- Facebook -->
-            <a class="link-card" href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-                <div class="link-main">
-                    <div class="icon-badge">👥</div>
-                    <div class="link-text-block">
-                        <div class="link-title">Facebook Community</div>
-                        <div class="link-sub">Stay plugged in with the culture</div>
-                    </div>
-                </div>
-                <div class="pill-btn">FACEBOOK</div>
-            </a>
+        <!-- Facebook -->
+        <a class="link-card" href="https://www.facebook.com/share/17fLB9q4uK/?mibextid=wwXIfr" target="_blank" rel="noopener">
+          <div class="link-icon">👥</div>
+          <div class="link-text-wrap">
+            <div class="link-title">Facebook Community</div>
+            <div class="link-subtitle">Stay plugged in with the culture</div>
+          </div>
+          <div class="link-button">FACEBOOK</div>
+        </a>
 
-            <!-- Email -->
-            <a class="link-card" href="mailto:contactus@collectivecardculture.com">
-                <div class="link-main">
-                    <div class="icon-badge">✉️</div>
-                    <div class="link-text-block">
-                        <div class="link-title">Business / Collabs</div>
-                        <div class="link-sub">contactus@collectivecardculture.com</div>
-                    </div>
-                </div>
-                <div class="pill-btn">EMAIL</div>
-            </a>
+        <!-- Email -->
+        <a class="link-card" href="mailto:contactus@collectivecardculture.com">
+          <div class="link-icon">✉️</div>
+          <div class="link-text-wrap">
+            <div class="link-title">Business / Collabs</div>
+            <div class="link-subtitle">contactus@collectivecardculture.com</div>
+          </div>
+          <div class="link-button">EMAIL</div>
+        </a>
 
-        </div>
+      </div>
 
-        <!-- Footer -->
-        <div class="footer">
-            POWERED BY <span class="brand">COLLECTIVE CARD CULTURE</span><br />
-            THE HOBBY, ELEVATED
-        </div>
-    </div>
+      <!-- Footer -->
+      <div class="footer">
+        POWERED BY <span class="brand">COLLECTIVE CARD CULTURE</span> · THE HOBBY, ELEVATED
+      </div>
+    </section>
+  </main>
 </body>
 </html>
